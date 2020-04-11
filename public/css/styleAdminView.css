@@ -1,0 +1,142 @@
+/* BILLETS */
+
+.news{
+	margin: 50px auto;
+	width: 75%;
+	max-width: 850px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid #FFF;
+	background-color: #EEE;
+}
+
+.news h3{
+	border-radius: 5px 5px 0 0;
+	padding-top: 20px;
+	text-decoration: underline;
+	flex: 0.5;
+	font-weight: bold;
+	background-color: rgba(117, 60, 20);
+}
+
+.creation_date{
+	background-color: rgba(117, 60, 20);
+	padding-bottom: 20px;
+	flex: 0.5;
+	border-bottom: 2px solid rgba(117, 60, 20);
+}
+
+.news p{
+	padding: 15px 5px;
+	flex: 2;
+	color: rgba(117, 60, 20);
+}
+
+.news a{
+	background-color: rgba(117, 60, 20);
+	padding: 15px 0;
+	flex: 0.75;
+	border-top: 2px solid rgba(117, 60, 20);
+}
+
+.news a:last-child{
+	border-radius: 0 0 5px 5px;
+}
+
+.news a:hover{
+	text-decoration: underline;
+}
+
+
+/* ADMIN VIEW */
+
+h2{
+	width: 50%;
+	text-align: center;
+	margin: 50px auto;
+	padding: 15px;
+	font-size: 1.5em;
+	border: 1px solid #FFF;
+	background-color: rgb(117, 60, 20);
+	border-radius: 3px;
+}
+
+.sous-titre{
+	width: 25%;
+	text-align: center;
+	margin: 50px auto;
+	padding: 15px;
+	font-size: 1.2em;
+	border: 1px solid #FFF;
+	background-color: rgb(117, 60, 20);
+	border-radius: 3px;
+}
+
+#formCreatePost{
+	width: 80%;
+	height: 350px;
+	margin: 0 auto;
+	padding: 20px;
+	border: 1px solid #FFF;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
+}
+
+#formCreatePost label{
+	text-decoration: underline;
+	font-size: 1.1em;
+}
+
+#formCreatePost input{
+	margin: 0 auto;
+	width: 75%;
+}
+
+#formCreatePost input:last-child{
+	width: 100px;
+	padding: 10px;
+	border-radius: 3px;
+	color: rgb(117, 60, 20);
+}
+
+#formCreatePost input:last-child:hover{
+	background-color: rgb(117, 60, 20);
+	color: #FFF;
+	transition: .4s;
+}
+
+/* COMMENTAIRES */
+
+#comments{
+	width: 75%;
+	height: auto;
+	padding: 25px;
+	margin: 0 auto;
+	border: 1px solid #FFF;
+	border-radius: 3px;
+	text-align: center;
+}
+
+#comments h4{
+	font-size: 1.1em;
+	padding: 20px 0 10px 0;
+	text-decoration: underline;
+}
+
+#comments p{
+	padding-bottom: 10px;
+}
+
+#com {
+	padding: 10px 0;
+}
+
+#comments a:hover{
+	text-decoration: underline;
+}

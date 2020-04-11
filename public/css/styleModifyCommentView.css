@@ -1,0 +1,34 @@
+/* MODIFY COMMENT VIEW */
+
+.modifyCommenth3{
+	width: 50%;
+	text-align: center;
+	margin: 50px auto;
+	padding: 15px;
+	font-size: 1.2em;
+	border: 1px solid #FFF;
+	background-color: rgb(117, 60, 20);
+	border-radius: 3px;
+}
+
+#ancienCom{
+	text-align: center;
+}
+
+#formNewComment{
+	display: flex;
+	flex-direction: column;
+}
+
+#formNewComment textarea{
+	color: #000;
+	width: 50%;
+	height: 250px;
+	margin: 0 auto;
+}
+
+#valider{
+	margin: 20px auto;
+	width: 100px;
+	color: #000;
+}

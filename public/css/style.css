@@ -1,0 +1,51 @@
+/* PAGE DE CONNEXION */
+
+h2{
+	width: 50%;
+	text-align: center;
+	margin: 50px auto 0 auto;
+	padding: 15px;
+	font-size: 1.5em;
+	border: 1px solid #FFF;
+	background-color: rgb(117, 60, 20);
+	border-radius: 3px;
+}
+
+#formAdminConnect{
+	height: 250px;
+	width: 60%;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border: 1px solid #FFF;
+	border-radius: 3px;
+	padding: 25px;
+	text-align: center;
+}
+
+#formAdminConnect label{
+	text-decoration: underline;
+	font-size: 1.1em;
+}
+
+#formAdminConnect input{
+	width: 75%;
+	margin: 0 auto;
+	color: rgb(117, 60, 20);
+	text-align: center;
+}
+
+#formAdminConnect input:last-child{
+	width: 150px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 3px;
+	color: rgb(117, 60, 20);
+}
+
+#formAdminConnect input:last-child:hover{
+	background-color: rgb(117, 60, 20);
+	color: #FFF;
+	transition: .4s;
+}
