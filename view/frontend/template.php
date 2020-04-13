@@ -21,24 +21,39 @@
             <li><a href="index.php?action=listPosts">Lecture</a></li>
 
             <li><a href="index.php?action=<?php
+            if(isset($_SESSION['isLoggedIn'])){
                 if($_SESSION['isLoggedIn']){
                     echo 'adminPage';
                 }
                 else{
                     echo 'connexionPage';
                 }
-                ?>"><?php
-            if (!$_SESSION['isLoggedIn']) {
-                echo 'Connexion';
             }
             else{
-                echo 'Admin';
+                echo 'connexionPage';
+            }
+                ?>"><?php
+            if (isset($_SESSION['isLoggedIn'])) {
+                if (!$_SESSION['isLoggedIn']) {
+                    echo 'Connexion';
+                }
+                else{
+                    echo 'Admin';
+                }
+            }
+            else{
+                echo 'Connexion';
             }
             ?></a></li>
 
             <li><a href="index.php?action=deconnexion" style="display:<?php
-            if ($_SESSION['isLoggedIn']) {
-                echo "flex";
+            if (isset($_SESSION['isLoggedIn'])) {
+                if ($_SESSION['isLoggedIn']) {
+                    echo "flex";
+                }
+                else{
+                    echo "none";
+                }
             }
             else{
                 echo "none";

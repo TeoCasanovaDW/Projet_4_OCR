@@ -50,7 +50,7 @@ try {
         /* ADMIN PART */
 
 
-        elseif ($_SESSION['isLoggedIn'] == true) {
+        elseif (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn']) {
 
             if ($_GET['action'] == 'adminPage') {
                 displayAdminPage();
@@ -123,7 +123,6 @@ try {
         }
     }
     else {
-        $_SESSION['isLoggedIn'] = false;
         listPosts();
     }
 }
