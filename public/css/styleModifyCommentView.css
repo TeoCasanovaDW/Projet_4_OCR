@@ -32,3 +32,10 @@
 	width: 100px;
 	color: #000;
 }
+
+@media all and (max-width: 600px){
+	#formNewComment textarea{
+		width: 75%;
+		height: 175px;
+	}
+}

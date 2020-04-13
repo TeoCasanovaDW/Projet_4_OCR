@@ -117,3 +117,19 @@ h2{
 	border-radius: 3px;
 	color: rgb(117, 60, 20);
 }
+
+@media all and (max-width: 410px){
+	#formAddComment div:first-child{
+		display: flex;
+		flex-direction: column;
+	}
+
+	#formAddComment input{
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	#formAddComment textarea{
+		width: 90%;
+	}
+}

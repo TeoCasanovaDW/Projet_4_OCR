@@ -111,13 +111,19 @@ h2{
 	transition: .4s;
 }
 
+@media all and (max-width: 500px){
+	.sous-titre{
+		width: 50%;
+	}
+}
+
 /* COMMENTAIRES */
 
 #comments{
 	width: 75%;
 	height: auto;
 	padding: 25px;
-	margin: 0 auto;
+	margin: 0 auto 50px auto;
 	border: 1px solid #FFF;
 	border-radius: 3px;
 	text-align: center;

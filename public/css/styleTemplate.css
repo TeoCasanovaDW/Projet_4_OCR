@@ -82,3 +82,34 @@ header p{
 	display: flex;
 	justify-content: center;
 }
+
+@media all and (max-width: 800px){
+	header{
+		padding-top: 150px;
+	}
+	header h1{
+		font-size: 3em;
+		padding-top: 35px;
+	}
+	header p{
+		font-size: 1em;
+	}
+	header div:first-child{
+		height: 150px;
+	}
+	nav ul{
+		width: 75%;
+	}
+}
+
+@media all and (max-width: 461px){
+	header h1{
+		padding-top: 5px;
+	}
+	nav ul{
+		width: 100%;
+	}
+	nav ul li:last-child{
+		display: none;
+	}
+}
