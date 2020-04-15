@@ -34,7 +34,7 @@ ob_start();
 		while ($comment = $comments->fetch()){
 	?>
 		<p>
-			<?= htmlspecialchars($comment['author']) . ' : ' . htmlspecialchars($comment['comment']) . ' le :' . $comment['comment_date_fr'] ?>
+			<?= 'De <strong>' . htmlspecialchars($comment['author'])  . '</strong> le ' . $comment['comment_date_fr'] . ' : ' . htmlspecialchars($comment['comment']) ?>
 		</p>
 		
 		<a href="index.php?action=signaler&amp;comment_id=<?= $comment['id'] ?>">(Signaler)</a>

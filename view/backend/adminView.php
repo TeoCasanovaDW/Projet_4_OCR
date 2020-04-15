@@ -66,7 +66,7 @@ while ($data = $posts->fetch()) {
 		<h4>Billet n°<?= htmlspecialchars($comment['post_id']) ?> : </h4>
 
 		<p>
-			<?= '<strong>' . htmlspecialchars($comment['author']) . ':</strong><br>le ' . $comment['comment_date_fr'] . ' :<br><p id="com">' . htmlspecialchars($comment['comment']) . '</p>'?>
+			<?= 'De <strong>' . htmlspecialchars($comment['author']) . '</strong> le ' . $comment['comment_date_fr'] . ' :<br><p id="com">' . htmlspecialchars($comment['comment']) . '</p>'?>
 		</p>
 		<a href="index.php?action=commentEditor&amp;comment_id=<?= $comment['id'] ?>">(Modifier)</a>
 

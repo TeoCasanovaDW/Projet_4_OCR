@@ -2,17 +2,21 @@
 
 session_start();
 
-require('controller/frontend.php');
+use \Openclassrooms\Blog\controller\Controller;
+
+require_once('controller/frontend.php');
+
+$controller = new Controller();
 
 try {
 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
-            listPosts();
+            $controller->listPosts();
         }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                post();
+                $controller->post();
             }
             else {
                 throw new Exception('aucun identifiant de billet envoyé');
@@ -21,7 +25,7 @@ try {
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    $controller->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
                     throw new Exception('tous les champs ne sont pas remplis !');
@@ -33,17 +37,17 @@ try {
         }
         elseif($_GET['action'] == 'signaler'){
             if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0){
-                reportComment();
+                $controller->reportComment();
             }
             else{
                 throw new Exception('pas d\'id de commentaire');
             }
         }
         elseif($_GET['action'] == 'connexionPage'){
-            displayConnexionPage();
+            $controller->displayConnexionPage();
         }
         elseif($_GET['action'] == 'adminConnect'){
-            getConnected();
+            $controller->getConnected();
         }
 
 
@@ -53,11 +57,11 @@ try {
         elseif (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn']) {
 
             if ($_GET['action'] == 'adminPage') {
-                displayAdminPage();
+                $controller->displayAdminPage();
             }
             elseif ($_GET['action'] == 'commentEditor') {
                 if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
-                    displayEditor();
+                    $controller->displayEditor();
                 }
                 else{
                     throw new Exception('pas d\'identifiant de commentaire');
@@ -66,7 +70,7 @@ try {
             elseif ($_GET['action'] == 'editComment') {
                 if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
                     if (!empty($_POST['newComment'])) {
-                        editComment($_POST['newComment']);
+                        $controller->editComment($_POST['newComment']);
                     }
                     else{
                         throw new Exception('aucun nouveau commentaire détecté');
@@ -78,7 +82,7 @@ try {
             }
             elseif ($_GET['action'] == 'createPost') {
                 if (!empty($_POST['titleCreated']) && !empty($_POST['contentCreated'])) {
-                    createPost();
+                    $controller->createPost();
                 }
                 else{
                     throw new Exception('Veuillez renseigner un titre ainsi qu\'un contenu');
@@ -86,7 +90,7 @@ try {
             }
             elseif ($_GET['action'] == 'adminUpdatePage') {
                 if (isset($_GET['post_id'])) {
-                    displayPostToUpdate();
+                    $controller->displayPostToUpdate();
                 }
                 else{
                     throw new Exception('pas d\'identifiant de billet');
@@ -95,7 +99,7 @@ try {
             elseif ($_GET['action'] == 'updatePost'){
                 if (!empty($_POST['titleUpdated']) && !empty($_POST['contentUpdated'])) {
                     if (isset($_GET['post_id'])) {
-                        updatePost();
+                        $controller->updatePost();
                     }
                     else{
                         throw new Exception('pas d\'identifiant de billet');
@@ -107,7 +111,7 @@ try {
             }
             elseif ($_GET['action'] == 'deletePost') {
                 if (isset($_GET['post_id'])) {
-                    deletePost();
+                    $controller->deletePost();
                 }
                 else{
                     throw new Exception('pas d\'identifiant de billet détecté');
@@ -115,15 +119,15 @@ try {
             }
             elseif ($_GET['action'] == 'deconnexion') {
                 $_SESSION['isLoggedIn'] = false;
-                listPosts();
+                $controller->listPosts();
             }
         }
         else{
             throw new Exception('Vous devez être administrateur pour accéder ici');
         }
     }
-    else {
-        listPosts();
+    else{
+        $controller->listPosts();
     }
 }
 catch(Exception $e){

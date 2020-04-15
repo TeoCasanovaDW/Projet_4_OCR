@@ -2,7 +2,7 @@
 
 $title = 'Mon blog';
 
-$style = 'rel="stylesheet" type="text/css" href="public/css/style.css"';
+$style = 'rel="stylesheet" type="text/css" href="public/css/styleErrorView.css"';
 
 ob_start();
 
