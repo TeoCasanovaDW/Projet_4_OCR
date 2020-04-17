@@ -27,10 +27,14 @@ class Controller
         $commentManager = new CommentManager();
 
     	$post = $postManager->getPost($_GET['id']);
-    	$comments = $commentManager->getComments($_GET['id']);
 
-    	require('view/frontend/postView.php');
-
+        if($post){
+        	$comments = $commentManager->getComments($_GET['id']);
+        	require('view/frontend/postView.php');
+        }
+        else{
+            echo ('le post n\'existe pas !');
+        }
     }
 
     public function addComment($postId, $author, $comment){
@@ -53,7 +57,7 @@ class Controller
 
         $old_comment = $commentManager->displayCommentEditor($_GET['comment_id']);
 
-        require('view/frontend/modifyCommentView.php');
+        require('view/backend/modifyCommentView.php');
     }
 
     public function editComment($newComment)

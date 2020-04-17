@@ -7,11 +7,12 @@
     <link rel="stylesheet" type="text/css" href="public/css/styleTemplate.css">
     <script src="https://kit.fontawesome.com/30f5d53ec1.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tiny.cloud/1/xict65hzv8qup3ek8t0uilw1r3riiktuxpuzw11v3hy7o295/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <meta name="viewport" content="width=device-width, initial-scale = 1">
     <script>
         tinymce.init({
             selector: '.mytextarea'
         });
-</script>
+    </script>
 
 </head>
     
