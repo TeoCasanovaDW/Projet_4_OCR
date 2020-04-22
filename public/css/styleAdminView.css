@@ -86,6 +86,7 @@ h2{
 	flex-direction: column;
 	justify-content: space-around;
 	text-align: center;
+	color: rgb(117, 60, 20);
 }
 
 #formCreatePost label{
@@ -96,6 +97,7 @@ h2{
 #formCreatePost input{
 	margin: 0 auto;
 	width: 75%;
+	color: rgb(117, 60, 20);
 }
 
 #formCreatePost input:last-child{

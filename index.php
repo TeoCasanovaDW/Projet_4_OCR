@@ -47,7 +47,12 @@ try {
             $controller->displayConnexionPage();
         }
         elseif($_GET['action'] == 'adminConnect'){
-            $controller->getConnected();
+            if ($_POST['user'] && $_POST['password']) {
+                $controller->getConnected();
+            }
+            else{
+                throw new Exception('Veuillez renseigner un identifiant et un mot de passe');
+            }
         }
 
 
@@ -121,9 +126,20 @@ try {
                 $_SESSION['isLoggedIn'] = false;
                 $controller->listPosts();
             }
+            elseif ($_GET['action'] == 'removeReport') {
+                if($_GET['comment_id']){
+                    $controller->removeReport();
+                }
+                else{
+                    throw new Exception('impossible d\'enlever le report');
+                }
+            }
+            elseif ($_GET['action'] == 'deleteComment') {
+                $controller->deleteComment();
+            }
         }
         else{
-            throw new Exception('Vous devez être administrateur pour accéder ici');
+            throw new Exception('Cette page n\'existe pas');
         }
     }
     else{

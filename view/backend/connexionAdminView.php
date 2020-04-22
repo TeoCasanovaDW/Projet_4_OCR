@@ -1,6 +1,6 @@
 <?php 
 
-$title = 'Connection Administrateur';
+$title = 'Connexion Administrateur';
 
 $style = 'rel="stylesheet" type="text/css" href="public/css/styleConnexionAdminView.css"';
 
@@ -8,7 +8,7 @@ ob_start();
 
 ?>
 
-<h2>Page de connection</h2>
+<h2>Page de connexion</h2>
 
 <form id="formAdminConnect" action="index.php?action=adminConnect" method="post">
 	

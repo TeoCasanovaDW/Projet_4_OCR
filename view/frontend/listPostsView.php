@@ -10,7 +10,7 @@ while ($data = $posts->fetch()) {
 	
 ?>
 
-<div class="news">
+<article class="news">
 
 	<h3>
 		<?= htmlspecialchars($data['title']); ?>			
@@ -25,7 +25,7 @@ while ($data = $posts->fetch()) {
 	</p>
 
 	<a href="index.php?id=<?= $data['id']; ?>&amp;action=post">Commentaires</a>
-</div>
+</article>
 
 <?php 
 

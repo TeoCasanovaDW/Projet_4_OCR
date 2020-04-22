@@ -10,7 +10,7 @@ ob_start();
 
 <h2>Ancien billet :</h2>
 
-<div class="news">
+<article class="news">
 
 	<h3>
 		<?= htmlspecialchars($displayPostToUpdate['title']) ?>			
@@ -24,7 +24,7 @@ ob_start();
 		<?= nl2br($displayPostToUpdate['content'])?>			
 	</p>
 
-</div>
+</article>
 
 <br><br><br><br>
 
@@ -35,10 +35,10 @@ ob_start();
 	<form id="formUpdatePost" action="index.php?action=updatePost&amp;post_id=<?= $displayPostToUpdate['id'] ?>" method="post">
 
 		<label for="title">Titre :</label>
-		<input type="text" name="titleUpdated"></input>
+		<input type="text" name="titleUpdated" value="<?= $displayPostToUpdate['title'] ?>"></input>
 		<br><br>
 		<label for="content">Contenu :</label>
-		<input type="text" name="contentUpdated" class="mytextarea"></input>
+		<input type="text" name="contentUpdated" class="mytextarea" value="<?= $displayPostToUpdate['content'] ?>"></input>
 
 		<input type="submit" name="valider">
 

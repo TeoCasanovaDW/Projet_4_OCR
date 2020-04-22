@@ -84,6 +84,7 @@ h2{
 #formUpdatePost input{
 	margin: 0 auto;
 	width: 75%;
+	color: rgb(117, 60, 20);
 }
 
 #formUpdatePost input:last-child{
@@ -91,7 +92,6 @@ h2{
 	padding: 10px;
 	border-radius: 3px;
 	margin-top: 25px;
-	color: rgb(117, 60, 20);
 }
 
 #formUpdatePost input:last-child:hover{

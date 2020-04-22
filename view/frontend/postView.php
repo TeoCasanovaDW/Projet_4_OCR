@@ -8,7 +8,7 @@ ob_start();
 
 ?>
 
-<div class="news">
+<article class="news">
 
 	<h3>
 		<?= htmlspecialchars($post['title']) ?>			
@@ -24,7 +24,7 @@ ob_start();
 
 	<a href="index.php?action=listPosts">Retour à la page d'acceuil</a>
 
-</div>
+</article>
 
 <h2>Commentaires</h2>
 
@@ -45,7 +45,7 @@ ob_start();
 
 	</div>
 
-	<h2>Ajouter un commentaire</h2>
+<h2>Ajouter un commentaire</h2>
 
 <form id="formAddComment" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>

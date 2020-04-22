@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head> 
     <meta charset="utf-8" />
     <title> <?= $title ?> </title>
@@ -60,7 +60,7 @@
                 echo "none";
             }
             ?>">Déconnexion</a></li>
-            <li><img src="public/images/JeanForteroche.png"></li>
+            <li><img src="public/images/JeanForteroche.png" alt="logo"></li>
         </ul>
     </nav>
 

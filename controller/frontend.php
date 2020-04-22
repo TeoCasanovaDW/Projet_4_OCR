@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace Openclassrooms\Blog\Controller;
 
@@ -12,6 +12,8 @@ require_once('model/AdminManager.php');
 
 class Controller
 {
+
+    /* POSTS */
 
     public function listPosts(){
 
@@ -33,9 +35,76 @@ class Controller
         	require('view/frontend/postView.php');
         }
         else{
-            echo ('le post n\'existe pas !');
+            throw new \Exception('le post n\'existe pas !');
         }
     }
+
+    public function createPost(){
+        $adminManager = new AdminManager();
+        $createdPost = $adminManager->createPost($_POST['titleCreated'], $_POST['contentCreated']);
+
+        header('Location: index.php?action=listPosts');
+    }
+
+    public function displayPostToUpdate(){
+        $adminManager = new AdminManager();
+        $displayPostToUpdate = $adminManager->getPost($_GET['post_id']);
+        if($displayPostToUpdate){
+            require('view/backend/adminUpdateView.php');
+        }
+        else{
+            throw new \Exception('Le post n\'existe pas');
+        }
+    }
+
+    public function updatePost(){
+        $adminManager = new AdminManager();
+        $updatePost = $adminManager->updatePost($_POST['titleUpdated'], $_POST['contentUpdated'], $_GET['post_id']);
+
+        header('Location: index.php?action=listPosts');
+    }
+
+    public function deletePost(){
+        $adminManager = new AdminManager();
+        $deletePost = $adminManager->deletePost($_GET['post_id']);
+
+        header('Location: index.php?action=listPosts');
+    }
+
+    /*ADMIN CONNEXION*/
+
+    public function displayConnexionPage(){
+        $adminManager = new AdminManager();
+        $adminManager->getConnexionPage();
+
+        require('view/backend/connexionAdminView.php');
+    }
+
+    public function getConnected(){
+        $adminManager = new AdminManager();
+
+        $user = $adminManager->getConnected();
+
+        if($_POST['user'] == $user['user'] && password_verify($_POST['password'], $user['password'])){
+            $_SESSION['isLoggedIn'] = true;
+            header('Location: index.php?action=adminPage');
+        }
+        else{
+            throw new \Exception('Mauvais identifiants !');
+        }
+    }
+
+    public function displayAdminPage(){
+
+        $postManager = new PostManager();
+        $commentManager = new CommentManager();   
+        $posts = $postManager->getPosts();
+        $AllComments = $commentManager->getAllComments();
+
+        require('view/backend/adminView.php');
+    }
+
+    /* COMMENTS */
 
     public function addComment($postId, $author, $comment){
 
@@ -44,7 +113,7 @@ class Controller
         $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
         if ($affectedLines === false) {
-            throw new Exception('Impossible d\'ajouter le commentaire !');
+            throw new \Exception('Impossible d\'ajouter le commentaire !');
         }
         else {
             header('Location: index.php?action=post&id=' . $postId);
@@ -77,63 +146,24 @@ class Controller
         header('Location: index.php?action=listPosts');
     }
 
-    public function displayConnexionPage(){
-        $adminManager = new AdminManager();
-        $adminManager->getConnexionPage();
+    public function removeReport(){
+        $commentManager = new CommentManager();
 
-        require('view/backend/connexionAdminView.php');
+        $removedReport = $commentManager->removeReport($_GET['comment_id']);
+
+        header('Location: index.php?action=listPosts');
     }
+    
+    public function deleteComment(){
+        $commentManager = new CommentManager();
+        $deletedComment = $commentManager->deleteComment($_GET['comment_id']);
 
-    public function getConnected(){
-        $adminManager = new AdminManager();
-
-        $user = $adminManager->getConnected();
-
-        if($_POST['user'] == $user['user'] && password_verify($_POST['password'], $user['password'])){
-            $_SESSION['isLoggedIn'] = true;
-            header('Location: index.php?action=adminPage');
+        if($deletedComment){
+            header('Location: index.php?action=listPosts');
         }
         else{
-            throw new Exception('Mauvais identifiants !');
+            throw new \Exception('impossible de supprimer le commentaire');
         }
-    }
-
-    public function displayAdminPage(){
-
-        $postManager = new PostManager();
-        $commentManager = new CommentManager();   
-        $posts = $postManager->getPosts();
-        $AllComments = $commentManager->getAllComments();
-
-        require('view/backend/adminView.php');
-    }
-
-    public function createPost(){
-        $adminManager = new AdminManager();
-        $createdPost = $adminManager->createPost($_POST['titleCreated'], $_POST['contentCreated']);
-
-        header('Location: index.php?action=listPosts');
-    }
-
-    public function displayPostToUpdate(){
-        $adminManager = new AdminManager();
-        $displayPostToUpdate = $adminManager->getPost($_GET['post_id']);
-
-        require('view/backend/adminUpdateView.php');
-    }
-
-    public function updatePost(){
-        $adminManager = new AdminManager();
-        $updatePost = $adminManager->updatePost($_POST['titleUpdated'], $_POST['contentUpdated'], $_GET['post_id']);
-
-        header('Location: index.php?action=listPosts');
-    }
-
-    public function deletePost(){
-        $adminManager = new AdminManager();
-        $deletePost = $adminManager->deletePost($_GET['post_id']);
-
-        header('Location: index.php?action=listPosts');
     }
 
 }
