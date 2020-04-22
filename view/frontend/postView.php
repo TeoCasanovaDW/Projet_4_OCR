@@ -18,9 +18,9 @@ ob_start();
 		<?= $post['creation_date_fr'] ?>
 	</div>
 
-	<p>
+	<div>
 		<?= nl2br($post['content'])?>			
-	</p>
+	</div>
 
 	<a href="index.php?action=listPosts">Retour à la page d'acceuil</a>
 

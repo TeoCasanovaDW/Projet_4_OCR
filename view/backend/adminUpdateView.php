@@ -20,9 +20,9 @@ ob_start();
 		<?= $displayPostToUpdate['creation_date_fr'] ?>
 	</div>
 
-	<p>
+	<div>
 		<?= nl2br($displayPostToUpdate['content'])?>			
-	</p>
+	</div>
 
 </article>
 

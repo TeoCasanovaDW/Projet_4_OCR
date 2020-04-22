@@ -20,9 +20,9 @@ while ($data = $posts->fetch()) {
 		le <?= $data['creation_date_fr']; ?>			
 	</div>
 
-	<p>
+	<div>
 		<?= nl2br($data['content'])?>			
-	</p>
+	</div>
 
 	<a href="index.php?id=<?= $data['id']; ?>&amp;action=post">Commentaires</a>
 </article>

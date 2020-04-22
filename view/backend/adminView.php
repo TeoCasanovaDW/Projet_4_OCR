@@ -42,9 +42,9 @@ while ($data = $posts->fetch()) {
 		<?= $data['creation_date_fr'] ?>
 	</div>
 
-	<p>
+	<div>
 		<?= nl2br($data['content'])?>			
-	</p>
+	</div>
 		
 	<a href="index.php?action=adminUpdatePage&amp;post_id=<?= $data['id'] ?>">Mettre le billet à jour</a>
 	<a href="index.php?action=deletePost&amp;post_id=<?= $data['id'] ?>">Supprimer le billet</a>
